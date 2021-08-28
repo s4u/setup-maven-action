@@ -32,4 +32,5 @@ jobs:
           maven-version: ${{ matrix.maven }}
 
       - run: mvn -V validate -Drequire.java=${{ matrix.java }} -Drequire.maven=${{ matrix.maven }}
+        shell: bash
 
