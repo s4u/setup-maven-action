@@ -1,0 +1,72 @@
+name: 'Setup Maven with settings.xml'
+description: 'Setup environment for Maven build'
+
+inputs:
+
+  # java jdk params
+
+  java-version:
+    description: 'The Java version to set up'
+    required: true
+
+  java-distribution:
+    description: 'Java distribution'
+    default: 'temurin'
+    required: false
+
+  # maven version
+  maven-version:
+    description: 'The Maven version to set up'
+    default: 3.8.1
+    required: false
+
+  # maven settings.xml
+  settings-servers:
+    description: 'servers definition in json array, eg: [{"id": "serverId", "username": "username", "password": "password"}]'
+    required: false
+
+  settings-mirrors:
+    description: 'mirrors definition in json array, eg: [{"id": "id", "name": "name", "mirrorOf": "mirrorOf", "url": "url"}]'
+    required: false
+
+  settings-properties:
+    description: 'json array with properties, eg [{"propertyName1": "propertyValue1"}, {"propertyName2": "propertyValue2"}]'
+    required: false
+
+  settings-sonatypeSnapshots:
+    description: 'add https://oss.sonatype.org/content/repositories/snapshots to repository list - true or false'
+    required: false
+
+runs:
+  using: 'composite'
+
+  steps:
+
+    - run: echo "::group::Setup Java"
+      shell: bash
+    - uses: actions/setup-java@v2.3.0
+      with:
+        overwrite-settings: false
+        java-version: '${{ inputs.java-version }}'
+        distribution: '${{ inputs.java-distribution }}'
+    - run: echo "::endgroup::"
+      shell: bash
+
+    - run: echo "::group::Setup Maven Version"
+      shell: bash
+    - uses: stCarolas/setup-maven@v4.1
+      with:
+        maven-version: '${{ inputs.maven-version }}'
+    - run: echo "::endgroup::"
+      shell: bash
+
+    - run: echo "::group::Prepare Maven settings.xml"
+      shell: bash
+    - uses: s4u/maven-settings-action@v2.4.1
+      with:
+        servers: '${{ inputs.settings-servers}}'
+        mirrors: '${{ inputs.settings-mirrors}}'
+        properties: '${{ inputs.settings-properties}}'
+        sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots}}'
+    - run: echo "::endgroup::"
+      shell: bash

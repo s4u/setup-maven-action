@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+
+  schedule:
+    - cron: '22 23 * * 5'
+
+jobs:
+  test:
+    name: Test
+
+    strategy:
+      matrix:
+        os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
+        java: [ '1.8', '11', '16' ]
+        maven: [ '3.5.4', '3.6.3', '3.8.2' ]
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      uses: ./
+      with:
+        java-version: ${{ matrix.java }}
+        maven-version: ${{ matrix.maven }}
+
+      run: mvn -v
