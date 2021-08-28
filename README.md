@@ -1,4 +1,5 @@
 # Setup Maven with settings.xml
+[![Test](https://github.com/s4u/setup-maven-action/actions/workflows/test.yml/badge.svg)](https://github.com/s4u/setup-maven-action/actions/workflows/test.yml)
 
 This is composite action which help to prepare GitHub Actions environment for Maven build by calling:
 
