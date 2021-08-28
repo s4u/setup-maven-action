@@ -31,5 +31,5 @@ jobs:
           java-cache: maven
           maven-version: ${{ matrix.maven }}
 
-      - run: mvn -v validate -Drequire.java=${{ matrix.java }} -Drequire.maven=${{ matrix.maven }}
+      - run: mvn -V validate -Drequire.java=${{ matrix.java }} -Drequire.maven=${{ matrix.maven }}
 

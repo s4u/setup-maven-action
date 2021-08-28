@@ -81,6 +81,7 @@
                 <_require.java>1.8</_require.java>
             </properties>
         </profile>
+
         <profile>
             <id>non-java8-version-label</id>
             <activation>
