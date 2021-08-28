@@ -1,6 +1,10 @@
 name: 'Setup Maven with settings.xml'
 description: 'Setup environment for Maven build'
 
+branding:
+  icon: 'settings'
+  color: 'green'
+
 inputs:
 
   # java jdk params
