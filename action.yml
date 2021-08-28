@@ -14,6 +14,10 @@ inputs:
     default: 'temurin'
     required: false
 
+  java-cache:
+    description: 'Name of the build platform to cache dependencies. It should be "maven" or empty.'
+    required: true
+
   # maven version
   maven-version:
     description: 'The Maven version to set up'
@@ -49,6 +53,7 @@ runs:
         overwrite-settings: false
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
+        cache: '${{ inputs.java-cache }}'
     - run: echo "::endgroup::"
       shell: bash
 
