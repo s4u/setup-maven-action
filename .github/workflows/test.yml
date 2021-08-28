@@ -23,9 +23,9 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      uses: ./
-      with:
-        java-version: ${{ matrix.java }}
-        maven-version: ${{ matrix.maven }}
+      - uses: ./
+        with:
+          java-version: ${{ matrix.java }}
+          maven-version: ${{ matrix.maven }}
 
-      run: mvn -v
+      - run: mvn -v
