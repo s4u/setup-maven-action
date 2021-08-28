@@ -28,6 +28,8 @@ jobs:
       - uses: ./
         with:
           java-version: ${{ matrix.java }}
+          java-cache: maven
           maven-version: ${{ matrix.maven }}
 
-      - run: mvn -v
+      - run: mvn -v validate -Drequire.java=${{ matrix.java }} -Drequire.maven=${{ matrix.maven }}
+
