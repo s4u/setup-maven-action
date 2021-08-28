@@ -61,8 +61,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Maven
-        uses: setup-maven@v1.0.0
+      - name: Setup Maven with settings.xml
+        uses: s4u/setup-maven-action@v1.0.0
         with:
           java-version: 8
           maven-version: ${{ matrix.maven }}
