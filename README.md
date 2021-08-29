@@ -4,6 +4,7 @@
 This is composite action which help to prepare GitHub Actions environment for Maven build by calling:
 
 - [actions/setup-java](https://github.com/marketplace/actions/setup-java-jdk)
+- [actions/cache](https://github.com/marketplace/actions/cache)
 - [stCarolas/setup-maven](https://github.com/marketplace/actions/setup-maven)
 - [s4u/maven-settings-action](https://github.com/marketplace/actions/maven-settings-action)
 
@@ -27,7 +28,29 @@ or use automatic tools like [Dependabot](https://docs.github.com/en/code-securit
 | ----------------- |------------- |-------- |
 | java-version      | java-version |         |
 | java-distribution | distribution | temurin |
-| java-cache        | cache        |         |
+
+## cache
+
+A cache action is configured as:
+
+```yaml
+    - uses: actions/cache
+      with:
+        path: |
+          ${{ inputs.cache-path }}
+          ${{ inputs.cache-path-add }}
+        key: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-
+```
+
+So we can use for action:
+
+| params            | description                                              |
+| ----------------- |--------------------------------------------------------- |
+| cache-path        | default cache path for Maven with value ~/.m2/repository | 
+| cache-path-add    | additional value for cache path                          |
+| cache-prefix      | prefix value for `key` and `restore-keys` cache params   |
+
 
 ## setup-maven
 
