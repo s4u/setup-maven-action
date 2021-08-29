@@ -2,12 +2,18 @@ name: Test
 
 on:
   pull_request:
+    branches:
+      - 'main'
   push:
-    branches-ignore:
-      - 'dependabot/**'
+    branches:
+      - 'main'
 
   schedule:
     - cron: '22 23 * * 5'
+
+concurrency:
+  group: test-action
+  cancel-in-progress: true
 
 jobs:
   test:
