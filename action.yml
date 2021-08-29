@@ -18,14 +18,24 @@ inputs:
     default: 'temurin'
     required: false
 
-  java-cache:
-    description: 'Name of the build platform to cache dependencies. It should be "maven" or empty.'
-    required: true
+  # cache
+  cache-prefix:
+    description: 'Cache key prefix'
+    required: false
+
+  cache-path:
+    description: 'Cache path'
+    default: '~/.m2/repository'
+    required: false
+
+  cache-path-add:
+    description: 'Additional item for cache path'
+    required: false
 
   # maven version
   maven-version:
     description: 'The Maven version to set up'
-    default: 3.8.1
+    default: '3.8.1'
     required: false
 
   # maven settings.xml
@@ -57,7 +67,18 @@ runs:
         overwrite-settings: false
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
-        cache: '${{ inputs.java-cache }}'
+    - run: echo "::endgroup::"
+      shell: bash
+
+    - run: echo "::group::Setup Cache"
+      shell: bash
+    - uses: actions/cache@v2.1.6
+      with:
+        path: |
+          ${{ inputs.cache-path }}
+          ${{ inputs.cache-path-add }}
+        key: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-
     - run: echo "::endgroup::"
       shell: bash
 
