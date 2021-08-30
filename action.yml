@@ -1,5 +1,5 @@
-name: 'Setup Maven with settings.xml'
-description: 'Setup environment for Maven build'
+name: 'Setup Maven Action'
+description: 'Complete environment configuration for Maven builds'
 
 branding:
   icon: 'settings'

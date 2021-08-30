@@ -1,4 +1,4 @@
-# Setup Maven with settings.xml
+# Setup Maven Action
 [![Test](https://github.com/s4u/setup-maven-action/actions/workflows/test.yml/badge.svg)](https://github.com/s4u/setup-maven-action/actions/workflows/test.yml)
 
 This is composite action which help to prepare GitHub Actions environment for Maven build by calling:
@@ -93,7 +93,7 @@ jobs:
 
     steps:
 
-      - name: Setup Maven with settings.xml
+      - name: Setup Maven Action
         uses: s4u/setup-maven-action@< version >
         with:
           java-version: 8
