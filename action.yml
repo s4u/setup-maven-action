@@ -65,26 +65,16 @@ runs:
 
   steps:
 
-    - run: echo "::group::Checkout"
-      shell: bash
     - uses: actions/checkout@v2.3.4
       with:
         fetch-depth: '${{ inputs.checkout-fetch-depth }}'
-    - run: echo "::endgroup::"
-      shell: bash
 
-    - run: echo "::group::Setup Java"
-      shell: bash
     - uses: actions/setup-java@v2.3.0
       with:
         overwrite-settings: false
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
-    - run: echo "::endgroup::"
-      shell: bash
 
-    - run: echo "::group::Setup Cache"
-      shell: bash
     - uses: actions/cache@v2.1.6
       with:
         path: |
@@ -92,24 +82,14 @@ runs:
           ${{ inputs.cache-path-add }}
         key: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-
-    - run: echo "::endgroup::"
-      shell: bash
 
-    - run: echo "::group::Setup Maven Version"
-      shell: bash
     - uses: stCarolas/setup-maven@v4.1
       with:
         maven-version: '${{ inputs.maven-version }}'
-    - run: echo "::endgroup::"
-      shell: bash
 
-    - run: echo "::group::Prepare Maven settings.xml"
-      shell: bash
     - uses: s4u/maven-settings-action@v2.4.1
       with:
         servers: '${{ inputs.settings-servers}}'
         mirrors: '${{ inputs.settings-mirrors}}'
         properties: '${{ inputs.settings-properties}}'
         sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots}}'
-    - run: echo "::endgroup::"
-      shell: bash
