@@ -23,7 +23,7 @@ jobs:
       matrix:
         os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
         java: [ '8', '11', '16' ]
-        maven: [ '3.5.4', '3.6.3', '3.8.2' ]
+        maven: [ '3.5.4', '3.6.3', '3.8.3' ]
       fail-fast: false
 
     runs-on: ${{ matrix.os }}
@@ -40,3 +40,16 @@ jobs:
       - run: mvn -V validate -Drequire.java=${{ matrix.java }} -Drequire.maven=${{ matrix.maven }}
         shell: bash
 
+  test-deault:
+    name: Test with defaults
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - uses: ./
+        with:
+          java-version: 8
+
+      - run: mvn -V validate -Drequire.java=8 -Drequire.maven=3.8.3
+        shell: bash
