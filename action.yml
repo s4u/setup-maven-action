@@ -83,7 +83,7 @@ runs:
         key: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-
 
-    - uses: stCarolas/setup-maven@v4.1
+    - uses: stCarolas/setup-maven@v4.2
       with:
         maven-version: '${{ inputs.maven-version }}'
 
