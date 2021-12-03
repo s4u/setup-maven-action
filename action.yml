@@ -75,7 +75,7 @@ runs:
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
 
-    - uses: actions/cache@v2.1.6
+    - uses: actions/cache@v2.1.7
       with:
         path: |
           ${{ inputs.cache-path }}
