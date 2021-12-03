@@ -11,10 +11,6 @@ on:
   schedule:
     - cron: '22 23 * * 5'
 
-concurrency:
-  group: test-action-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   test:
     name: Test
