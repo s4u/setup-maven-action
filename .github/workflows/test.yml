@@ -47,7 +47,7 @@ jobs:
         with:
           java-version: 8
 
-      - run: mvn -V validate -Drequire.java=8 -Drequire.maven=3.8.3
+      - run: mvn -V validate -Drequire.java=8 -Drequire.maven=3.8.4
         shell: bash
 
   test-ok:
