@@ -18,7 +18,7 @@ This is composite action which help to prepare GitHub Actions environment for Ma
 # Project versioning
 
 This project uses [Semantic Versioning](https://semver.org/).
-We recommended to use the latest and specific release version.
+We recommended using the latest and specific release version.
 
 In order to keep your project dependencies up to date you can watch this repository *(Releases only)*
 or use automatic tools like [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates).
@@ -27,15 +27,15 @@ or use automatic tools like [Dependabot](https://docs.github.com/en/code-securit
 
 ## checkout
 
-| params                     | destination       |
-| -------------------------- |------------------ |
-| checkout-fetch-depth       | fetch-depth           |
+| params               | destination |
+|----------------------|-------------|
+| checkout-fetch-depth | fetch-depth |
 
 
 ## setup-java
 
 | params            | destination  | default |
-| ----------------- |------------- |-------- |
+|-------------------|--------------|---------|
 | java-version      | java-version |         |
 | java-distribution | distribution | temurin |
 
@@ -55,23 +55,23 @@ A cache action is configured as:
 
 So we can use for action:
 
-| params            | description                                              |
-| ----------------- |--------------------------------------------------------- |
-| cache-path        | default cache path for Maven with value ~/.m2/repository | 
-| cache-path-add    | additional value for cache path                          |
-| cache-prefix      | prefix value for `key` and `restore-keys` cache params   |
+| params         | description                                              |
+|----------------|----------------------------------------------------------|
+| cache-path     | default cache path for Maven with value ~/.m2/repository | 
+| cache-path-add | additional value for cache path                          |
+| cache-prefix   | prefix value for `key` and `restore-keys` cache params   |
 
 
 ## setup-maven
 
 | params        | destination   | default |
-| ------------- |-------------- |-------- |
-| maven-version | maven-version | 3.8.3   |
+|---------------|---------------|---------|
+| maven-version | maven-version | 3.8.4   |
 
 ## maven-settings-action
 
 | params                     | destination       |
-| -------------------------- |------------------ |
+|----------------------------|-------------------|
 | settings-servers           | servers           |
 | settings-mirrors           | mirrors           |
 | settings-properties        | properties        |
