@@ -54,5 +54,11 @@ jobs:
     name: Test OK
     runs-on: ubuntu-latest
     needs: [ test, test-deault ]
+    if: always()
+
     steps:
-      - run: echo OK
+      - run: 'true'
+        if: needs.test.result == 'success' && needs.test-deault.result == 'success'
+
+      - run: 'false'
+        if: needs.test.result != 'success' || needs.test-deault.result != 'success'
