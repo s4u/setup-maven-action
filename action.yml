@@ -83,13 +83,13 @@ runs:
         key: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-
 
-    - uses: stCarolas/setup-maven@v4.3
-      with:
-        maven-version: '${{ inputs.maven-version }}'
+    - name: Installed Maven version
+      run:  echo "::set-output name=version::$(mvn -q -v)"
+      shell: bash
+      id: current-maven
 
-    # try again due to macOS timeouts
     - uses: stCarolas/setup-maven@v4.3
-      if: failure()
+      if: inputs.maven-version != steps.current-maven.outputs.version
       with:
         maven-version: '${{ inputs.maven-version }}'
 
