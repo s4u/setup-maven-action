@@ -25,11 +25,14 @@ or use automatic tools like [Dependabot](https://docs.github.com/en/code-securit
 
 # Params mapping for sub actions
 
+**Notice** when used this action you should not used mentioned below actions again.
+
 ## checkout
 
 | params               | destination |
 |----------------------|-------------|
 | checkout-fetch-depth | fetch-depth |
+| checkout-path        | path        |
 
 
 ## setup-java

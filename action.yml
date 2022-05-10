@@ -12,6 +12,10 @@ inputs:
     description: 'Number of commits to fetch'
     required: false
 
+  checkout-path:
+    description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
+    required: false
+
   # java jdk params
 
   java-version:
@@ -68,6 +72,7 @@ runs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: '${{ inputs.checkout-fetch-depth }}'
+        path: '${{ inputs.checkout-path }}'
 
     - uses: actions/setup-java@v3
       with:
