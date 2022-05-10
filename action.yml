@@ -16,6 +16,12 @@ inputs:
     description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
     required: false
 
+  checkout-persist-credentials:
+    description: 'Whether to configure the token or SSH key with the local git config'
+    default: 'false'
+    required: false
+
+
   # java jdk params
 
   java-version:
@@ -73,6 +79,7 @@ runs:
       with:
         fetch-depth: '${{ inputs.checkout-fetch-depth }}'
         path: '${{ inputs.checkout-path }}'
+        persist-credentials: '${{ inputs.checkout-persist-credentials }}'
 
     - uses: actions/setup-java@v3
       with:
