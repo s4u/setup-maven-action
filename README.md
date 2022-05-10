@@ -29,11 +29,11 @@ or use automatic tools like [Dependabot](https://docs.github.com/en/code-securit
 
 ## checkout
 
-| params               | destination |
-|----------------------|-------------|
-| checkout-fetch-depth | fetch-depth |
-| checkout-path        | path        |
-
+| params                       | destination         | default |
+|------------------------------|---------------------|---------|
+| checkout-fetch-depth         | fetch-depth         |         |
+| checkout-path                | path                |         |
+| checkout-persist-credentials | persist-credentials | false   |
 
 ## setup-java
 
