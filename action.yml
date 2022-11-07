@@ -100,7 +100,7 @@ runs:
       shell: bash
       id: current-maven
 
-    - uses: stCarolas/setup-maven@v4.4
+    - uses: stCarolas/setup-maven@v4.5
       if: inputs.maven-version != steps.current-maven.outputs.version
       with:
         maven-version: '${{ inputs.maven-version }}'
