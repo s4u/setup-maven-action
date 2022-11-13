@@ -105,7 +105,7 @@ runs:
       with:
         maven-version: '${{ inputs.maven-version }}'
 
-    - uses: s4u/maven-settings-action@v2.7.0
+    - uses: s4u/maven-settings-action@v2.8.0
       with:
         servers: '${{ inputs.settings-servers}}'
         mirrors: '${{ inputs.settings-mirrors}}'
