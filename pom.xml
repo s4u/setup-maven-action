@@ -36,7 +36,6 @@
     <properties>
         <require.maven/>
         <require.java/>
-        <_require.java/>
     </properties>
 
     <build>
@@ -44,11 +43,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.0.0-M3</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>display-info</goal>
                             <goal>enforce</goal>
                         </goals>
                         <phase>validate</phase>
@@ -57,7 +55,7 @@
                 <configuration>
                     <rules>
                         <requireJavaVersion>
-                            <version>${_require.java}</version>
+                            <version>${require.java}</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
                             <version>[${require.maven}]</version>
@@ -67,32 +65,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>java8-version-label</id>
-            <activation>
-                <property>
-                    <name>require.java</name>
-                    <value>8</value>
-                </property>
-            </activation>
-            <properties>
-                <_require.java>1.8</_require.java>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>non-java8-version-label</id>
-            <activation>
-                <property>
-                    <name>require.java</name>
-                    <value>!8</value>
-                </property>
-            </activation>
-            <properties>
-                <_require.java>${require.java}</_require.java>
-            </properties>
-        </profile>
-    </profiles>
 </project>
