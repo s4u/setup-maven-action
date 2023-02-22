@@ -69,7 +69,7 @@ So we can use for action:
 
 | params        | destination   | default |
 |---------------|---------------|---------|
-| maven-version | maven-version | 3.8.6   |
+| maven-version | maven-version | 3.9.0   |
 
 ## maven-settings-action
 
@@ -90,7 +90,7 @@ jobs:
 
     strategy:
       matrix:
-        maven: [ '3.5.4', '3.6.3', '3.8.6' ]
+        maven: [ '3.6.3', '3.8.7', '3.9.0' ]
 
     name: Maven ${{ matrix.maven }} sample
 
