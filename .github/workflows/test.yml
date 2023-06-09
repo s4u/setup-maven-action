@@ -19,7 +19,7 @@ jobs:
       matrix:
         os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
         java: [ '8', '11', '17' ]
-        maven: [ '3.6.3', '3.8.7', '3.9.0' ]
+        maven: [ '3.6.3', '3.8.7', '3.9.2' ]
       fail-fast: false
 
     runs-on: ${{ matrix.os }}
@@ -47,7 +47,7 @@ jobs:
         with:
           java-version: 8
 
-      - run: mvn -V validate -Drequire.java=8 -Drequire.maven=3.9.0
+      - run: mvn -V validate -Drequire.java=8 -Drequire.maven=3.9.2
         shell: bash
 
   test-ok:
