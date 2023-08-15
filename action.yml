@@ -22,7 +22,7 @@ inputs:
     required: false
 
   checkout-ref:
-    description: 'Which branch of the repository to clone'
+    description: 'The branch, tag, or SHA of the repository to clone'
     required: false
 
   # java jdk params
