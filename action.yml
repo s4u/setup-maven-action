@@ -21,6 +21,9 @@ inputs:
     default: 'false'
     required: false
 
+  checkout-ref:
+    description: 'Which branch of the repository to clone'
+    required: false
 
   # java jdk params
 
@@ -80,6 +83,7 @@ runs:
         fetch-depth: '${{ inputs.checkout-fetch-depth }}'
         path: '${{ inputs.checkout-path }}'
         persist-credentials: '${{ inputs.checkout-persist-credentials }}'
+        ref: '${{ inputs.checkout-ref }}'
 
     - uses: actions/setup-java@v3
       with:
