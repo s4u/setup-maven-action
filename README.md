@@ -33,6 +33,7 @@ or use automatic tools like [Dependabot](https://docs.github.com/en/code-securit
 |------------------------------|---------------------|---------|
 | checkout-fetch-depth         | fetch-depth         |         |
 | checkout-path                | path                |         |
+| checkout-ref                 | ref                 |         |
 | checkout-persist-credentials | persist-credentials | false   |
 
 ## setup-java
