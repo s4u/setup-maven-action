@@ -9,23 +9,20 @@ This is composite action which help to prepare GitHub Actions environment for Ma
 - [stCarolas/setup-maven](https://github.com/marketplace/actions/setup-maven)
 - [s4u/maven-settings-action](https://github.com/marketplace/actions/maven-settings-action)
 
-# Contributions
+:exclamation: You **should not** include above actions in your configuration - in other case  those will be **called twice**. :exclamation:
 
-- Contributions are welcome!
-- Give :star: - if you want to encourage me to work on a project
-- Don't hesitate to create issues for new features you dream of or if you suspect some bug
+For default values you only need:
 
-# Project versioning
+```yml
+    steps:
 
-This project uses [Semantic Versioning](https://semver.org/).
-We recommended using the latest and specific release version.
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@< version >
 
-In order to keep your project dependencies up to date you can watch this repository *(Releases only)*
-or use automatic tools like [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates).
-
+      - run: mvn -V ...
+```
+ 
 # Params mapping for sub actions
-
-**Notice** when used this action you should not used mentioned below actions again.
 
 ## checkout
 
@@ -105,6 +102,20 @@ jobs:
 
       - run: mvn -V ...
 ```
+
+# Contributions
+
+- Contributions are welcome!
+- Give :star: - if you want to encourage me to work on a project
+- Don't hesitate to create issues for new features you dream of or if you suspect some bug
+
+# Project versioning
+
+This project uses [Semantic Versioning](https://semver.org/).
+We recommended using the latest and specific release version.
+
+In order to keep your project dependencies up to date you can watch this repository *(Releases only)*
+or use automatic tools like [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates).
 
 # License
 
