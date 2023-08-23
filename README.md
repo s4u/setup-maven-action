@@ -40,7 +40,7 @@ or use automatic tools like [Dependabot](https://docs.github.com/en/code-securit
 
 | params            | destination  | default |
 |-------------------|--------------|---------|
-| java-version      | java-version |         |
+| java-version      | java-version | 17      |
 | java-distribution | distribution | temurin |
 
 ## cache
