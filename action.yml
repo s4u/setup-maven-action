@@ -53,7 +53,7 @@ inputs:
   # maven version
   maven-version:
     description: 'The Maven version to set up'
-    default: '3.9.2'
+    default: '3.9.4'
     required: false
 
   # maven settings.xml
