@@ -94,6 +94,7 @@ runs:
         persist-credentials: '${{ inputs.checkout-persist-credentials }}'
         ref: '${{ inputs.checkout-ref }}'
         repository: '${{ inputs.checkout-repository }}'
+        token: '${{ inputs.checkout-token }}'
 
     - uses: actions/setup-java@v3
       with:
