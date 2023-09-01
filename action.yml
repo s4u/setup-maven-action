@@ -28,10 +28,12 @@ inputs:
   checkout-repository:
     description: 'The repository to checkout if not the repository that triggered the action. For use when building GitHub Apps'
     required: false
+    default: ${{ github.repository }}
 
   checkout-token:
     description: 'Token to use for checkout if checking out a repository out of scope for GITHUB_TOKEN'
     required: false
+    default: ${{ github.token }}
 
   # java jdk params
 
