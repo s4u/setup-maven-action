@@ -26,12 +26,14 @@ For default values you only need:
 
 ## checkout
 
-| params                       | destination         | default |
-|------------------------------|---------------------|---------|
-| checkout-fetch-depth         | fetch-depth         |         |
-| checkout-path                | path                |         |
-| checkout-ref                 | ref                 |         |
-| checkout-persist-credentials | persist-credentials | false   |
+| params                       | destination         | default                  |
+|------------------------------|---------------------|--------------------------|
+| checkout-fetch-depth         | fetch-depth         |                          |
+| checkout-path                | path                |                          |
+| checkout-ref                 | ref                 |                          |
+| checkout-repository          | repository          | ${{ github.repository }} |
+| checkout-token               | token               | ${{ github.token }}      |
+| checkout-persist-credentials | persist-credentials | false                    |
 
 ## setup-java
 
