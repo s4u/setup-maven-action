@@ -60,6 +60,7 @@ So we can use for action:
 
 | params         | description                                              |
 |----------------|----------------------------------------------------------|
+| cache-enabled  | enable cache. Default true                               |
 | cache-path     | default cache path for Maven with value ~/.m2/repository | 
 | cache-path-add | additional value for cache path                          |
 | cache-prefix   | prefix value for `key` and `restore-keys` cache params   |
