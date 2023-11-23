@@ -48,6 +48,11 @@ inputs:
     required: false
 
   # cache
+  cache-enabled:
+    description: 'Enable cache'
+    default: 'true'
+    required: false
+
   cache-prefix:
     description: 'Cache key prefix'
     required: false
@@ -105,6 +110,7 @@ runs:
         distribution: '${{ inputs.java-distribution }}'
 
     - uses: actions/cache@v3
+      if: inputs.cache-enabled == 'true'
       with:
         path: |
           ${{ inputs.cache-path }}
