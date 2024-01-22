@@ -109,7 +109,7 @@ runs:
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
 
-    - uses: actions/cache@v3
+    - uses: actions/cache@v4
       if: inputs.cache-enabled == 'true'
       with:
         path: |
