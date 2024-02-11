@@ -67,10 +67,15 @@ jobs:
 
       - run: cat ~/.m2/settings.xml
 
+      - run: |
+          grep "<id>ossrh</id>" ~/.m2/settings.xml
+          grep "<username>username-68</username>" ~/.m2/settings.xml
+          grep "<username>pupassword-68</username>" ~/.m2/settings.xml
+
   test-ok:
     name: Test OK
     runs-on: ubuntu-latest
-    needs: [ test, test-default ]
+    needs: [ test, test-default, test-issue-68 ]
     if: always()
 
     steps:
