@@ -79,7 +79,7 @@ jobs:
 
     steps:
       - run: 'true'
-        if: join(needs.*.result, ',') == 'success,success'
+        if: join(needs.*.result, ',') == 'success,success,success'
 
       - run: 'false'
-        if: join(needs.*.result, ',') != 'success,success'
+        if: join(needs.*.result, ',') != 'success,success,success'
