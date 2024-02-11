@@ -74,19 +74,23 @@ inputs:
 
   # maven settings.xml
   settings-servers:
-    description: 'servers definition in json array, eg: [{"id": "serverId", "username": "username", "password": "password"}]'
+    description: 'servers definition in json array, e.g.: [{"id": "serverId", "username": "username", "password": "password"}]'
     required: false
 
   settings-mirrors:
-    description: 'mirrors definition in json array, eg: [{"id": "id", "name": "name", "mirrorOf": "mirrorOf", "url": "url"}]'
+    description: 'mirrors definition in json array, e.g.: [{"id": "id", "name": "name", "mirrorOf": "mirrorOf", "url": "url"}]'
     required: false
 
   settings-properties:
-    description: 'json array with properties, eg [{"propertyName1": "propertyValue1"}, {"propertyName2": "propertyValue2"}]'
+    description: 'json array with properties, e.g. [{"propertyName1": "propertyValue1"}, {"propertyName2": "propertyValue2"}]'
     required: false
 
   settings-sonatypeSnapshots:
     description: 'add https://oss.sonatype.org/content/repositories/snapshots to repository list - true or false'
+    required: false
+
+  settings-proxies:
+    description: 'proxies definition in json array, e.g.: [{"id": "http-proxy", "active": "true", "protocol": "http", "host": "host", "port": "port", "nonProxyHosts": "host1|host2"}]'
     required: false
 
 runs:
@@ -130,7 +134,8 @@ runs:
 
     - uses: s4u/maven-settings-action@v3.0.0
       with:
-        servers: '${{ inputs.settings-servers}}'
-        mirrors: '${{ inputs.settings-mirrors}}'
-        properties: '${{ inputs.settings-properties}}'
-        sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots}}'
+        servers: '${{ inputs.settings-servers }}'
+        mirrors: '${{ inputs.settings-mirrors }}'
+        properties: '${{ inputs.settings-properties }}'
+        sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots }}'
+        proxies: '${{ inputs.settings-proxies }}'
