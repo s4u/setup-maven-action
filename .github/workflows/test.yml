@@ -66,11 +66,10 @@ jobs:
             }]
 
       - run: cat ~/.m2/settings.xml
-
       - run: |
           grep "<id>ossrh</id>" ~/.m2/settings.xml
           grep "<username>username-68</username>" ~/.m2/settings.xml
-          grep "<username>pupassword-68</username>" ~/.m2/settings.xml
+          grep "<password>password-68</password>" ~/.m2/settings.xml
 
   test-ok:
     name: Test OK
