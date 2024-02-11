@@ -48,6 +48,25 @@ jobs:
       - run: mvn -V validate -Drequire.java=17 -Drequire.maven=3.9.6
         shell: bash
 
+  # regressions tests
+  test-issue-68:
+    name: Test for issue 68
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./
+        with:
+          settings-servers: |
+            [{
+              "id": "ossrh",
+              "username": "${{ vars.TEST_68_1 }}",
+              "password": "${{ vars.TEST_68_2 }}"
+            }]
+
+      - run: cat ~/.m2/settings.xml
+
   test-ok:
     name: Test OK
     runs-on: ubuntu-latest
