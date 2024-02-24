@@ -119,7 +119,11 @@ runs:
         restore-keys: ${{ inputs.cache-prefix }}${{ runner.os }}-jdk${{ inputs.java-version }}-${{ inputs.java-distribution }}-maven${{ inputs.maven-version }}-
 
     - name: Installed Maven version
-      run:  echo "version=$(mvn -q -v)" >> $GITHUB_OUTPUT
+      run: |
+        version_info=$(mvn -q -v)
+        echo "version<<EOF" >> $GITHUB_OUTPUT
+        echo $version_info >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
       shell: bash
       id: current-maven
 
