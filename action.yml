@@ -94,7 +94,7 @@ runs:
 
   steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
       with:
         fetch-depth: '${{ inputs.checkout-fetch-depth }}'
         path: '${{ inputs.checkout-path }}'
@@ -109,7 +109,7 @@ runs:
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
 
-    - uses: actions/cache@v4
+    - uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
       if: inputs.cache-enabled == 'true'
       with:
         path: |
@@ -123,12 +123,12 @@ runs:
       shell: bash
       id: current-maven
 
-    - uses: stCarolas/setup-maven@v5
+    - uses: stCarolas/setup-maven@d6af6abeda15e98926a57b5aa970a96bb37f97d1 # v5
       if: inputs.maven-version != steps.current-maven.outputs.version
       with:
         maven-version: '${{ inputs.maven-version }}'
 
-    - uses: s4u/maven-settings-action@v3.0.0
+    - uses: s4u/maven-settings-action@7802f6aec16c9098b4798ad1f1d8ac75198194bd # v3.0.0
       with:
         servers: '${{ inputs.settings-servers}}'
         mirrors: '${{ inputs.settings-mirrors}}'
