@@ -80,6 +80,7 @@ So we can use for action:
 | settings-mirrors           | mirrors           |
 | settings-properties        | properties        |
 | settings-sonatypeSnapshots | sonatypeSnapshots |
+| settings-proxies           | proxies           |
 
 # Testing against different Maven versions
 
