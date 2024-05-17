@@ -40,7 +40,7 @@ For default values you only need:
 | params            | destination  | default |
 |-------------------|--------------|---------|
 | java-version      | java-version | 17      |
-| java-distribution | distribution | temurin |
+| java-distribution | distribution | zulu    |
 
 ## cache
 

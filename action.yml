@@ -44,7 +44,7 @@ inputs:
 
   java-distribution:
     description: 'Java distribution'
-    default: 'temurin'
+    default: 'zulu'
     required: false
 
   # cache
