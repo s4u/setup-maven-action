@@ -139,3 +139,4 @@ runs:
         properties: '${{ inputs.settings-properties }}'
         sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots }}'
         proxies: '${{ inputs.settings-proxies }}'
+        repositories: '${{ inputs.settings-repositories }}'
