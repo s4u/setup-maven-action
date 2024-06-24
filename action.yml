@@ -93,6 +93,10 @@ inputs:
     description: 'proxies definition in json array, e.g.: [{"id": "http-proxy", "active": "true", "protocol": "http", "host": "host", "port": "port", "nonProxyHosts": "host1|host2"}]'
     required: false
 
+  settings-repositories:
+    description: 'repository settings definition in json array, e.g.: [ { "id": "repoId","name": "repoName","url": "url","snapshots": { "enabled": true } } ]'
+    required: false
+
 runs:
   using: 'composite'
 
@@ -139,3 +143,4 @@ runs:
         properties: '${{ inputs.settings-properties }}'
         sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots }}'
         proxies: '${{ inputs.settings-proxies }}'
+        repositories: '${{ inputs.settings-repositories }}'
