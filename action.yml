@@ -12,6 +12,10 @@ inputs:
     description: 'Number of commits to fetch'
     required: false
 
+  checkout-submodules:
+    description: 'Whether to fetch submodules'
+    required: false
+
   checkout-path:
     description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
     required: false
@@ -105,6 +109,7 @@ runs:
     - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       with:
         fetch-depth: '${{ inputs.checkout-fetch-depth }}'
+        submodules: '${{ inputs.checkout-submodules }}'
         path: '${{ inputs.checkout-path }}'
         persist-credentials: '${{ inputs.checkout-persist-credentials }}'
         ref: '${{ inputs.checkout-ref }}'
