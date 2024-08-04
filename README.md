@@ -33,6 +33,7 @@ For default values you only need:
 | checkout-ref                 | ref                 |                          |
 | checkout-repository          | repository          | ${{ github.repository }} |
 | checkout-token               | token               | ${{ github.token }}      |
+| checkout-ssh-key             | ssh-key             |                          |
 | checkout-persist-credentials | persist-credentials | false                    |
 
 ## setup-java

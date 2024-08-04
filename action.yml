@@ -35,6 +35,10 @@ inputs:
     required: false
     default: ${{ github.token }}
 
+  checkout-ssh-key:
+    description: 'SSH key used to fetch the repository. It allows to run authenticated git commands'
+    required: false
+
   # java jdk params
 
   java-version:
@@ -110,6 +114,7 @@ runs:
         ref: '${{ inputs.checkout-ref }}'
         repository: '${{ inputs.checkout-repository }}'
         token: '${{ inputs.checkout-token }}'
+        ssh-key: '${{ inputs.checkout-ssh-key }}'
 
     - uses: actions/setup-java@v4
       with:
