@@ -29,6 +29,7 @@ For default values you only need:
 | params                       | destination         | default                  |
 |------------------------------|---------------------|--------------------------|
 | checkout-fetch-depth         | fetch-depth         |                          |
+| checkout-submodules          | submodules          |                          |
 | checkout-path                | path                |                          |
 | checkout-ref                 | ref                 |                          |
 | checkout-repository          | repository          | ${{ github.repository }} |
