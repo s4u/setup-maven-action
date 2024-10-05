@@ -73,7 +73,7 @@ So we can use for action:
 
 | params        | destination   | default |
 |---------------|---------------|---------|
-| maven-version | maven-version | 3.9.8   |
+| maven-version | maven-version | 3.9.9   |
 
 ## maven-settings-action
 
