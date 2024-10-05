@@ -28,6 +28,7 @@ For default values you only need:
 
 | params                       | destination         | default                  |
 |------------------------------|---------------------|--------------------------|
+| checkout-enabled             | enabled             |  true                    |
 | checkout-fetch-depth         | fetch-depth         |                          |
 | checkout-submodules          | submodules          |                          |
 | checkout-path                | path                |                          |
