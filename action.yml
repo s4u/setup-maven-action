@@ -109,6 +109,9 @@ inputs:
   settings-repositories:
     description: 'repository settings definition in json array, e.g.: [ { "id": "repoId","name": "repoName","url": "url","snapshots": { "enabled": true } } ]'
     required: false
+  settings-path: 
+    description: 'override default path to settings.xml which is $HOME/.m2/settings.xml'
+    required: false  
 
 runs:
   using: 'composite'
@@ -160,3 +163,4 @@ runs:
         sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots }}'
         proxies: '${{ inputs.settings-proxies }}'
         repositories: '${{ inputs.settings-repositories }}'
+        path: '${{ inputs.settings-path }}' 
