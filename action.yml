@@ -110,6 +110,11 @@ inputs:
     description: 'repository settings definition in json array, e.g.: [ { "id": "repoId","name": "repoName","url": "url","snapshots": { "enabled": true } } ]'
     required: false
 
+  settings-githubServer:
+    description: 'add to settings.xml servers server-id: github; username=$GITHUB_ACTOR and password=$GITHUB_TOKEN'
+    default: "true"
+    required: false
+
 runs:
   using: 'composite'
 
@@ -160,3 +165,4 @@ runs:
         sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots }}'
         proxies: '${{ inputs.settings-proxies }}'
         repositories: '${{ inputs.settings-repositories }}'
+        githubServer: '${{ inputs.settings-githubServer }}'
