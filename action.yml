@@ -110,6 +110,11 @@ inputs:
     description: 'repository settings definition in json array, e.g.: [ { "id": "repoId","name": "repoName","url": "url","snapshots": { "enabled": true } } ]'
     required: false
 
+  settings-githubServer:
+    description: 'add github server to maven settings.  This gets added as `server-id: github; username=$GITHUB_ACTOR (environment variable); password=$GITHUB_TOKEN (environment variable)` where $GITHUB_ACTOR is the actor of the workflow and $GITHUB_TOKEN is the token of the workflow.  This is useful for github packages, as long as $GITHUB_TOKEN has the correct permissions. to access the packages repo.'
+    default: "true"
+    required: false
+
 runs:
   using: 'composite'
 
@@ -160,3 +165,4 @@ runs:
         sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots }}'
         proxies: '${{ inputs.settings-proxies }}'
         repositories: '${{ inputs.settings-repositories }}'
+        githubServer: '${{ inputs.settings-githubServer }}'

@@ -1,4 +1,5 @@
 # Setup Maven Action
+
 [![Test](https://github.com/s4u/setup-maven-action/actions/workflows/test.yml/badge.svg)](https://github.com/s4u/setup-maven-action/actions/workflows/test.yml)
 
 This is composite action which help to prepare GitHub Actions environment for Maven build by calling:
@@ -9,7 +10,8 @@ This is composite action which help to prepare GitHub Actions environment for Ma
 - [stCarolas/setup-maven](https://github.com/marketplace/actions/setup-maven)
 - [s4u/maven-settings-action](https://github.com/marketplace/actions/maven-settings-action)
 
-:exclamation: You **should not** include above actions in your configuration - in other case  those will be **called twice**. :exclamation:
+> [!IMPORTANT]
+> You **should not** include the above actions in your configuration.  If you do, they will be called twice.
 
 For default values you only need:
 
@@ -21,10 +23,10 @@ For default values you only need:
 
       - run: mvn -V ...
 ```
- 
-# Params mapping for sub actions
 
-## checkout
+## Params mapping for sub actions
+
+### checkout
 
 | params                       | destination         | default                  |
 |------------------------------|---------------------|--------------------------|
@@ -38,14 +40,14 @@ For default values you only need:
 | checkout-ssh-key             | ssh-key             |                          |
 | checkout-persist-credentials | persist-credentials | false                    |
 
-## setup-java
+### setup-java
 
 | params            | destination  | default |
 |-------------------|--------------|---------|
 | java-version      | java-version | 17      |
 | java-distribution | distribution | zulu    |
 
-## cache
+### cache
 
 A cache action is configured as:
 
@@ -64,18 +66,17 @@ So we can use for action:
 | params         | description                                              |
 |----------------|----------------------------------------------------------|
 | cache-enabled  | enable cache. Default true                               |
-| cache-path     | default cache path for Maven with value ~/.m2/repository | 
+| cache-path     | default cache path for Maven with value ~/.m2/repository |
 | cache-path-add | additional value for cache path                          |
 | cache-prefix   | prefix value for `key` and `restore-keys` cache params   |
 
-
-## setup-maven
+### setup-maven
 
 | params        | destination   | default |
 |---------------|---------------|---------|
 | maven-version | maven-version | 3.9.9   |
 
-## maven-settings-action
+### maven-settings-action
 
 | params                     | destination       |
 |----------------------------|-------------------|
@@ -85,8 +86,23 @@ So we can use for action:
 | settings-sonatypeSnapshots | sonatypeSnapshots |
 | settings-proxies           | proxies           |
 | settings-repositories      | repositories      |
+| settings-githubServer      | servers           |
 
-# Testing against different Maven versions
+#### `settings-githubServer` parameter
+
+This parameter is used to configure the GitHub server in the maven settings file.  By default, it'll add the following server configuration:
+
+```xml
+<server>
+  <id>github</id>
+  <username>${env.GITHUB_ACTOR}</username>
+  <password>${env.GITHUB_TOKEN}</password>
+</server>
+```
+
+If you are including a custom github server setting as part of the `settings-servers` parameter, you can set this parameter to `false` to prevent the default GitHub server configuration from being added to the maven settings file twice.
+
+## Testing against different Maven versions
 
 ```yaml
 
@@ -111,13 +127,13 @@ jobs:
       - run: mvn -V ...
 ```
 
-# Contributions
+## Contributions
 
 - Contributions are welcome!
 - Give :star: - if you want to encourage me to work on a project
 - Don't hesitate to create issues for new features you dream of or if you suspect some bug
 
-# Project versioning
+## Project versioning
 
 This project uses [Semantic Versioning](https://semver.org/).
 We recommended using the latest and specific release version.
@@ -125,6 +141,6 @@ We recommended using the latest and specific release version.
 In order to keep your project dependencies up to date you can watch this repository *(Releases only)*
 or use automatic tools like [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates).
 
-# License
+## License
 
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
