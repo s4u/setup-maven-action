@@ -109,16 +109,22 @@ inputs:
   settings-repositories:
     description: 'repository settings definition in json array, e.g.: [ { "id": "repoId","name": "repoName","url": "url","snapshots": { "enabled": true } } ]'
     required: false
-  settings-path: 
+
+  settings-githubServer:
+    description: 'add to settings.xml servers server-id: github; username=$GITHUB_ACTOR and password=$GITHUB_TOKEN'
+    default: "true"
+    required: false
+
+  settings-path:
     description: 'override default path to settings.xml which is $HOME/.m2/settings.xml'
-    required: false  
+    required: false
 
 runs:
   using: 'composite'
 
   steps:
 
-    - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       if: inputs.checkout-enabled == 'true'
       with:
         fetch-depth: '${{ inputs.checkout-fetch-depth }}'
@@ -130,13 +136,13 @@ runs:
         token: '${{ inputs.checkout-token }}'
         ssh-key: '${{ inputs.checkout-ssh-key }}'
 
-    - uses: actions/setup-java@b36c23c0d998641eff861008f374ee103c25ac73
+    - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b
       with:
         overwrite-settings: false
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
 
-    - uses: actions/cache@2cdf405574d6ef1f33a1d12acccd3ae82f47b3f2 # v4.1.0
+    - uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
       if: inputs.cache-enabled == 'true'
       with:
         path: |
@@ -155,7 +161,7 @@ runs:
       with:
         maven-version: '${{ inputs.maven-version }}'
 
-    - uses: s4u/maven-settings-action@7802f6aec16c9098b4798ad1f1d8ac75198194bd # v3.0.0
+    - uses: s4u/maven-settings-action@64e42c454dbd42ef6370ac8539685755aedd205b # v3.1.0
       with:
         servers: '${{ inputs.settings-servers }}'
         mirrors: '${{ inputs.settings-mirrors }}'
@@ -163,4 +169,5 @@ runs:
         sonatypeSnapshots: '${{ inputs.settings-sonatypeSnapshots }}'
         proxies: '${{ inputs.settings-proxies }}'
         repositories: '${{ inputs.settings-repositories }}'
-        path: '${{ inputs.settings-path }}' 
+        githubServer: '${{ inputs.settings-githubServer }}'
+        path: '${{ inputs.settings-path }}'
