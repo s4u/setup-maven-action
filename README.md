@@ -84,8 +84,8 @@ So we can use for action:
 | settings-properties        | properties        |
 | settings-sonatypeSnapshots | sonatypeSnapshots |
 | settings-proxies           | proxies           |
-| settings-repositories      | repositories  
-| settings-path              | path
+| settings-repositories      | repositories      |
+| settings-path              | path              |
 
 # Testing against different Maven versions
 
