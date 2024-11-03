@@ -115,6 +115,10 @@ inputs:
     default: "true"
     required: false
 
+  settings-path:
+    description: 'override default path to settings.xml which is $HOME/.m2/settings.xml'
+    required: false
+
 runs:
   using: 'composite'
 
@@ -166,3 +170,4 @@ runs:
         proxies: '${{ inputs.settings-proxies }}'
         repositories: '${{ inputs.settings-repositories }}'
         githubServer: '${{ inputs.settings-githubServer }}'
+        path: '${{ inputs.settings-path }}'

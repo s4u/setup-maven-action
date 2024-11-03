@@ -86,6 +86,7 @@ So we can use for action:
 | settings-proxies           | proxies           |
 | settings-repositories      | repositories      |
 | settings-githubServer      | githubServer      |
+| settings-path              | path              |
 
 # Testing against different Maven versions
 
