@@ -77,16 +77,17 @@ So we can use for action:
 
 ## maven-settings-action
 
-| params                     | destination       |
-|----------------------------|-------------------|
-| settings-servers           | servers           |
-| settings-mirrors           | mirrors           |
-| settings-properties        | properties        |
-| settings-sonatypeSnapshots | sonatypeSnapshots |
-| settings-proxies           | proxies           |
-| settings-repositories      | repositories      |
-| settings-githubServer      | githubServer      |
-| settings-path              | path              |
+| params                      | destination        |
+|-----------------------------|--------------------|
+| settings-servers            | servers            |
+| settings-mirrors            | mirrors            |
+| settings-properties         | properties         |
+| settings-sonatypeSnapshots  | sonatypeSnapshots  |
+| settings-proxies            | proxies            |
+| settings-repositories       | repositories       |
+| settings-pluginRepositories | pluginRepositories |
+| settings-githubServer       | githubServer       |
+| settings-path               | path               |
 
 # Testing against different Maven versions
 
