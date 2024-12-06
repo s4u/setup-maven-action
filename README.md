@@ -44,6 +44,7 @@ For default values you only need:
 |-------------------|--------------|---------|
 | java-version      | java-version | 17      |
 | java-distribution | distribution | zulu    |
+| java-jdkFile      | jdkFile      |         |
 
 ## cache
 
