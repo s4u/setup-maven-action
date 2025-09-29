@@ -170,7 +170,7 @@ runs:
       with:
         maven-version: '${{ inputs.maven-version }}'
 
-    - uses: s4u/maven-settings-action@64e42c454dbd42ef6370ac8539685755aedd205b # v3.1.0
+    - uses: s4u/maven-settings-action@894661b3ddae382f1ae8edbeab60987e08cf0788 # v4.0.0
       with:
         servers: '${{ inputs.settings-servers }}'
         mirrors: '${{ inputs.settings-mirrors }}'
