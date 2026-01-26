@@ -144,7 +144,7 @@ runs:
         token: '${{ inputs.checkout-token }}'
         ssh-key: '${{ inputs.checkout-ssh-key }}'
 
-    - uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e
+    - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
       with:
         overwrite-settings: false
         java-version: '${{ inputs.java-version }}'
