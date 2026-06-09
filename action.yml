@@ -48,6 +48,10 @@ inputs:
     description: 'SSH key used to fetch the repository. It allows to run authenticated git commands'
     required: false
 
+  checkout-lfs:
+    description: 'Whether to download Git-LFS files'
+    required: false
+
   # java jdk params
 
   java-version:
@@ -143,6 +147,7 @@ runs:
         repository: '${{ inputs.checkout-repository }}'
         token: '${{ inputs.checkout-token }}'
         ssh-key: '${{ inputs.checkout-ssh-key }}'
+        lfs: '${{ inputs.checkout-lfs }}'
 
     - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
       with:
