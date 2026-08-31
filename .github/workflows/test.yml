@@ -45,7 +45,7 @@ jobs:
 
       - uses: ./
 
-      - run: mvn -V validate -Drequire.java=17 -Drequire.maven=3.9.16
+      - run: mvn -V validate -Drequire.java=25 -Drequire.maven=3.9.16
         shell: bash
 
   test-ok:

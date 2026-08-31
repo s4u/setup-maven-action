@@ -52,7 +52,7 @@ inputs:
 
   java-version:
     description: 'The Java version to set up'
-    default: '17'
+    default: '25'
     required: true
 
   java-distribution:

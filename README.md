@@ -42,7 +42,7 @@ For default values you only need:
 
 | params            | destination  | default |
 |-------------------|--------------|---------|
-| java-version      | java-version | 17      |
+| java-version      | java-version | 25      |
 | java-distribution | distribution | zulu    |
 | java-jdkFile      | jdkFile      |         |
 
