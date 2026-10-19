@@ -154,7 +154,7 @@ runs:
         overwrite-settings: false
         java-version: '${{ inputs.java-version }}'
         distribution: '${{ inputs.java-distribution }}'
-        jdkFile: '${{ inputs.java-jdkFile }}'
+        jdk-file: '${{ inputs.java-jdkFile }}'
 
     - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       if: inputs.cache-enabled == 'true'
